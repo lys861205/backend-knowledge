@@ -43,7 +43,7 @@ iostat 是最常用的磁盘 I/O 性能观测工具，它提供了每个磁盘�
 
 iostat 指标
 
-<img src="https://github.com/lys861205/backend-knowledge/blob/master/iostat.png" width="400" height="800">
+<img src="https://github.com/lys861205/backend-knowledge/blob/master/iostat.png" width="500" height="700">
 
 这些指标中
 * %util  ，就是我们前面提到的磁盘 I/O 使用率
