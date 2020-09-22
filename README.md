@@ -42,6 +42,8 @@ CAS函数把这2步合并成一条硬件级指令，形成**原子操作**
 ## 7. 各种算法
 ## 8. 工程架构(微服务，paxos, raft协议)
 ## 9. 开源组件（redis, kafka, hbase, storm, spark, rpc框架）
+### redis
+
 ## 10. linux操作系统知识
 
 ###  linux文件系统
