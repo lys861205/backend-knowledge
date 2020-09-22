@@ -49,7 +49,7 @@ Redis中只包含“键”和“值”两部分，只能通过“键”来查询
 Redis中，键的数据类型是字符串，但是为了丰富数据的存储的方式，值的数据类型有很多，常用的数据类型有这样几种，
 它们分别是字符串，列表，字典，集合，有序集合
 
-<img src="https://github.com/lys861205/backend-knowledge/blob/master/redis_data.png" width="500" height="300">
+<img src="https://github.com/lys861205/backend-knowledge/blob/master/redis_data.png" width="500" height="400">
 
 * 字符串（string）
 * 列表（list）列表数据类型支持存储一组数据，对应2种实现方法，**压缩列表(ziplist)**, **双向循环链表**
