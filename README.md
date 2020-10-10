@@ -55,7 +55,7 @@ CAS函数把这2步合并成一条硬件级指令，形成**原子操作**
 3. 图的存储方式；邻接矩阵存储方法，邻接表存储方法；
 4. 搜索算法：广度优先搜索算法(BFS) 和 深度优先搜索算法(DFS)
 
-* [Trie树（前缀树](https://github.com/lys861205/leetcode/blob/master/trie_tree-inl.h)
+* [Trie树（前缀树)](https://github.com/lys861205/leetcode/blob/master/trie_tree-inl.h)
 
 
 ## 7. 各种算法
@@ -75,6 +75,10 @@ RK算法的全称叫Rabin-Karp算法，模式串长度是m，主串长度是n，
 然后逐个于模式串的哈希值进行比较大小，如果某个字串的哈希值于模式串哈希值相等，那就是匹配上了,时间复杂度O(n)
 4. BM算法 Boyer-Moore算法
 5. KMP算法
+6. AC算法
+7. [贪心算法](https://github.com/lys861205/leetcode/blob/master/0-1-bag.cc)
+
+
 
 
 ## 8. 工程架构(微服务，paxos, raft协议)
