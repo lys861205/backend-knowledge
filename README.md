@@ -55,7 +55,7 @@ CAS函数把这2步合并成一条硬件级指令，形成**原子操作**
 3. 图的存储方式；邻接矩阵存储方法，邻接表存储方法；
 4. 搜索算法：广度优先搜索算法(BFS) 和 深度优先搜索算法(DFS)
 
-* Trie树（前缀树）
+* [Trie树（前缀树](https://github.com/lys861205/leetcode/blob/master/trie_tree-inl.h)
 
 
 ## 7. 各种算法
