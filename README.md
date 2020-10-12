@@ -105,7 +105,7 @@ Redis中，键的数据类型是字符串，但是为了丰富数据的存储的
 
 <img src="https://github.com/lys861205/backend-knowledge/blob/master/redis_data.png" width="500" height="400">
 
-#### 数据结构
+#### 1. 数据结构
 
 * 字符串（string）
 * 列表（list）列表数据类型支持存储一组数据，对应2种实现方法，**压缩列表(ziplist)**, **双向循环链表**
