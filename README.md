@@ -300,6 +300,7 @@ iostat 指标
   * glibc的ptmalloc2
   * google的tcmalloc
   * Facebook的jemalloc
+  
   后面2个使用需要设置环境变量LD_PRELOAD使用
 
 #### ptmalloc2
