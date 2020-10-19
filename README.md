@@ -288,6 +288,7 @@ iostat 指标
 
 ## 11. 数据库
 ## 12. 内存相关知识
+### 分配器
 一个优秀的内存分配器应具有以下特征：
   * 额外的空间损耗尽量少
   * 分配速度尽可能快
@@ -301,9 +302,9 @@ iostat 指标
   * Facebook的jemalloc
   后面2个使用需要设置环境变量LD_PRELOAD使用
 
-* ptmalloc2
-* tcmalloc
-* jemalloc
+1. **ptmalloc2**
+2. **tcmalloc**
+3. **jemalloc**
 ## 13. 数据序列化(json, xml, protobuf)
 ## 14. 系统设计
 ### 搜索引擎
