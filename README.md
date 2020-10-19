@@ -302,9 +302,9 @@ iostat 指标
   * Facebook的jemalloc
   后面2个使用需要设置环境变量LD_PRELOAD使用
 
-1. **ptmalloc2**
-2. **tcmalloc**
-3. **jemalloc**
+#### ptmalloc2
+#### tcmalloc
+#### jemalloc
 ## 13. 数据序列化(json, xml, protobuf)
 ## 14. 系统设计
 ### 搜索引擎
