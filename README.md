@@ -289,15 +289,16 @@ iostat 指标
 ## 11. 数据库
 ## 12. 内存相关知识
 一个优秀的内存分配器应具有以下特征：
-  * 额外的空间损耗尽量少
-  * 分配速度尽可能快
-  * 尽量避免内存碎片
-  * 缓存本地化友好
-  * 通过性，兼容性，可移植性，易调试
+    * 额外的空间损耗尽量少
+    * 分配速度尽可能快
+    * 尽量避免内存碎片
+    * 缓存本地化友好
+    * 通过性，兼容性，可移植性，易调试
+    
  目前常用的内存分配器，有以下几个
-  * glibc的ptmalloc2
-  * google的tcmalloc
-  * Facebook的jemalloc
+    * glibc的ptmalloc2
+    * google的tcmalloc
+    * Facebook的jemalloc
   后面2个使用需要设置环境变量LD_PRELOAD使用
 
 * ptmalloc2
