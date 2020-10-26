@@ -93,14 +93,14 @@ CAS函数把这2步合并成一条硬件级指令，形成**原子操作**
 1. 主串 模式串</br>
  在字符串A中查找字符串B，那字符串A是主串，字符串B是模式串；主串长度记作n，模式串的长度记作m，所以n>m; 算法
  最坏的时间复杂度是O(n * m)
-2. BF算法 (https://github.com/lys861205/leetcode/blob/master/BF_BM_RK_KMP.cc)
+2. [BF算法] (https://github.com/lys861205/leetcode/blob/master/BF_BM_RK_KMP.cc)
 BF算法中BF是Brute Force的缩写，中文叫作暴力匹配算法，也叫朴素匹配算法,时间复杂度O(n * m)
-3. RK算法  (https://github.com/lys861205/leetcode/blob/master/BF_BM_RK_KMP.cc)
+3. [RK算法]  (https://github.com/lys861205/leetcode/blob/master/BF_BM_RK_KMP.cc)
 RK算法的全称叫Rabin-Karp算法，模式串长度是m，主串长度是n，那在主串中，就会有n-m+1个长度是m的字串，如果比较
 模式串跟n-m+1的字串进程比较，时间复杂度比较高是O(n * m); RK算法思路是：通过哈希算法对n-m+1个字串分别求哈希值，
 然后逐个于模式串的哈希值进行比较大小，如果某个字串的哈希值于模式串哈希值相等，那就是匹配上了,时间复杂度O(n)
-4. BM算法 Boyer-Moore算法 (https://github.com/lys861205/leetcode/blob/master/BF_BM_RK_KMP.cc)
-5. KMP算法 (https://github.com/lys861205/leetcode/blob/master/BF_BM_RK_KMP.cc)
+4. [BM算法 Boyer-Moore算法] (https://github.com/lys861205/leetcode/blob/master/BF_BM_RK_KMP.cc)
+5. [KMP算法] (https://github.com/lys861205/leetcode/blob/master/BF_BM_RK_KMP.cc)
 6. AC算法
 7. [贪心算法](https://github.com/lys861205/leetcode/blob/master/0-1-bag.cc)
 8. 分治算法
