@@ -312,7 +312,23 @@ iostat 指标
 protobuf使用TLV的格式进行数据的组织,即Tag-Length-Value。 Tag作为该字段的唯一标识，
 Length代表Value数据域的长度，Value就是数据
 
-<img src="https://github.com/lys861205/backend-knowledge/blob/master/pb-tlv.png" width="700" height="200">
+<img src="https://github.com/lys861205/backend-knowledge/blob/master/pb-tlv.png" width="600" height="200">
+
+**wire_type** 类型
+
+| Type | Meaning | Used For |
+|------|---------|----------|
+| 0| Varint|int32, int64, uint32, uint64, sint32, sint64, bool, enum|
+|------|---------|----------|
+|1|64-bit|fixed64,sfixed64,double|
+|------|---------|----------|
+|2|Length-delimited|string, bytes,embedded, messages,packed, repeated field|
+|------|---------|----------|
+|3|Start group|groups(deprecated)|
+|------|---------|----------|
+|4|End group|groups(deprecated)|
+|------|---------|----------|
+|5|32-bit|fixed32, sfixed32, float|
 
 
 
