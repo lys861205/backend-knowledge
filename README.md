@@ -343,7 +343,8 @@ Length代表Value数据域的长度，Value就是数据
   <img src="https://github.com/lys861205/backend-knowledge/blob/master/protobuf_binary.png" width="600" height="200">
 
 * protobuf3 新特性
-
+  1. 去掉了字段前面的修饰关键字 optinal require
+  2. 没有了has_xxx函数了， 要判断是否有值，在定义field的时候 oneof xxx {}这样方式定义，通过枚举判断是否设置了该值
 
 ## 14. 系统设计
 ### 搜索引擎
