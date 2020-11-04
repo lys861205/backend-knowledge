@@ -312,7 +312,7 @@ iostat 指标
 protobuf使用TLV的格式进行数据的组织,即Tag-Length-Value。 Tag作为该字段的唯一标识，
 Length代表Value数据域的长度，Value就是数据
 
-<img src="https://github.com/lys861205/backend-knowledge/blob/master/pb-tlv.png" width="700" height="100">
+<img src="https://github.com/lys861205/backend-knowledge/blob/master/pb-tlv.png" width="700" height="200">
 
 
 
