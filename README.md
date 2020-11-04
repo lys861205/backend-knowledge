@@ -307,6 +307,9 @@ iostat 指标
 #### tcmalloc
 #### jemalloc
 ## 13. 数据序列化(json, xml, protobuf)
+* protobuf 编码结构
+
+
 ## 14. 系统设计
 ### 搜索引擎
 
