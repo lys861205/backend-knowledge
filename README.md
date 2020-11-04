@@ -342,7 +342,7 @@ Length代表Value数据域的长度，Value就是数据
   
   <img src="https://github.com/lys861205/backend-knowledge/blob/master/protobuf_binary.png" width="600" height="200">
 
-* protobuf 编码结构
+* protobuf3 新特性
 
 
 ## 14. 系统设计
