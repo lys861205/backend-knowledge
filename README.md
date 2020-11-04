@@ -318,17 +318,21 @@ Length代表Value数据域的长度，Value就是数据
 
 | Type | Meaning | Used For |
 |------|---------|----------|
-| 0| Varint|int32, int64, uint32, uint64, sint32, sint64, bool, enum|
-|------|---------|----------|
+|0| Varint|int32, int64, uint32, uint64, sint32, sint64, bool, enum|
 |1|64-bit|fixed64,sfixed64,double|
-|------|---------|----------|
 |2|Length-delimited|string, bytes,embedded, messages,packed, repeated field|
-|------|---------|----------|
 |3|Start group|groups(deprecated)|
-|------|---------|----------|
 |4|End group|groups(deprecated)|
-|------|---------|----------|
 |5|32-bit|fixed32, sfixed32, float|
+
+* **Tag-Length-Value**: 编码类型2将使用这种结构
+* **Tag-Value**: 编码类型Varint, 64-bit,32-bit将使用这种结构
+* **Varint编码**：
+
+  varint是一种对数字进行编码的方案，编码之后的数据是不定长的
+  * 编码规则：
+  1. 最高位表示是否继续，继续是1，代表后面7位是数字，是0后面7位用原码补齐
+  2. protobuf使用小字节
 
 
 
