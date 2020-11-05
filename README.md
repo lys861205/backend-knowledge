@@ -337,6 +337,10 @@ iostat 指标
                                 
           ```
       * PageHeap
+   4. TCMalloc内存分配过程
+      * 小对象分配过程
+      * 中对象分配过程
+      * 大对象分配过程
 #### jemalloc
 ## 13. 数据序列化(json, xml, protobuf)
 * protobuf 编码结构
