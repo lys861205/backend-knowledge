@@ -304,7 +304,9 @@ iostat 指标
   后面2个使用需要设置环境变量LD_PRELOAD使用
 
 #### ptmalloc2
-  1. TCMalloc 原理<br>
+ 
+#### tcmalloc
+ 1. TCMalloc 原理<br>
     ThreadCache --> CentralCache --> PageHeap, 每个线程独有一份ThreadCache,无需加锁
   2. TCMalloc内存分配分三类<br>
       * 小对象分配(0, 256KB)
@@ -332,7 +334,6 @@ iostat 指标
                                 
           ```
       * PageHeap
-#### tcmalloc
 #### jemalloc
 ## 13. 数据序列化(json, xml, protobuf)
 * protobuf 编码结构
