@@ -344,7 +344,19 @@ Length代表Value数据域的长度，Value就是数据
 
 * protobuf3 新特性
   1. 去掉了字段前面的修饰关键字 optinal require
-  2. 没有了has_xxx函数了， 要判断是否有值，在定义field的时候 oneof xxx {}这样方式定义，通过枚举判断是否设置了该值
+  2. 基本的数据类型(int, string, float, double)没有了has_xxx函数了， 要判断是否有值，在定义field的时候 oneof xxx {}这样方式定义，通过枚举判断是否设置了该值<br>
+  如
+  ```
+  message Test{
+    int32 age = 1;
+    oneof old {
+      int 32 old = 2;
+    }
+  }
+  //判断old是否赋值
+  Test t;
+  if (t.old_case() == Test::OLD_ONE_NOT_SET) 
+  ```
 
 ## 14. 系统设计
 ### 搜索引擎
