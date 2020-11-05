@@ -310,6 +310,14 @@ iostat 指标
       * 小对象分配(0, 256KB)
       * 中对象分配(256KB, 1MB)
       * 大对象分配(1MB, +∞)
+  3. TCMalloc几个名词
+      * Page TCMalloc管理内存的基本单位是页（跟操作系统所指页不是一个），默认是8KB
+      ```
+      ./configure --with-tcmalloc-pagesize=32 or 64 (编译时可以指定)
+      ```
+      * Span Span是有连续的n个Page组成的，一个span记录了起始page的PageID，以及包含的page的数量，span可以被拆分成多个class size的小对象用于小对象的分配
+      * Size Class
+      * PageHeap
 #### tcmalloc
 #### jemalloc
 ## 13. 数据序列化(json, xml, protobuf)
