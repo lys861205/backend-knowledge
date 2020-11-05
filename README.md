@@ -318,11 +318,13 @@ iostat 指标
       * Span Span是有连续的n个Page组成的，一个span记录了起始page的PageID，以及包含的page的数量，span可以被拆分成多个class size的小对象用于小对象的分配；
       也可以作为一个整体用于中对象和大对象分配，多个span以链表的形式连接
       * Size Class TCMalloc将每个小对象大小（1KB-256KB）划分成85个类别<br>
-          划分规则：
-                  1. 16字节以内 每8个字节划分一个Size class 
+          划分规则：<br>
+                  1. 16字节以内 每8个字节划分一个Size class <br>
                       * 共有2种 8KB, 16KB
-                  2.
-                  3.
+                  2. 16~128字节，每16字节划分一个size class
+                  3. 128B~256KB，按照每次步进(size / 8)字节的长度划分，并且步长需要向下对齐到2的整数次幂
+                                  * dhf
+                                  * ehll
       * PageHeap
 #### tcmalloc
 #### jemalloc
