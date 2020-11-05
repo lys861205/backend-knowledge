@@ -319,10 +319,10 @@ iostat 指标
       也可以作为一个整体用于中对象和大对象分配，多个span以链表的形式连接
       * Size Class TCMalloc将每个小对象大小（1KB-256KB）划分成85个类别<br>
           划分规则：
-                1. 16字节以内 每8个字节划分一个Size class 
+                  1. 16字节以内 每8个字节划分一个Size class 
                       * 共有2种 8KB, 16KB
-                2.
-                3.
+                  2.
+                  3.
       * PageHeap
 #### tcmalloc
 #### jemalloc
