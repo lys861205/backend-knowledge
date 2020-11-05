@@ -319,6 +319,9 @@ iostat 指标
       ```
       * Span Span是有连续的n个Page组成的，一个span记录了起始page的PageID，以及包含的page的数量，span可以被拆分成多个class size的小对象用于小对象的分配；
       也可以作为一个整体用于中对象和大对象分配，多个span以链表的形式连接
+      
+      <img src="https://github.com/lys861205/backend-knowledge/blob/master/tcmalloc-span" width="600" height="200">
+      
       * Size Class TCMalloc将每个小对象大小（1KB-256KB）划分成85个类别<br>
           划分规则：<br>
           ```
