@@ -160,7 +160,13 @@ P(A|B) = P(B|A) * P(A) / P(B)
 
 ## 9. 开源组件（redis, kafka, elk spark, rpc框架）
 ### elk
-elasticsearch, logstash, kibana
+* elasticsearch
+* logstash
+* kibana
+* beats
+
+### kafka
+
 ### redis
 redis是一种键值(Key-Value)数据库，相对于关系型数据库，Redis也被叫作**非关系型数据库**
 Redis中只包含“键”和“值”两部分，只能通过“键”来查询“值”；Redis主要是作为内存数据库使用，也就是说，
