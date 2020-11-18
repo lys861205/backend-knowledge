@@ -157,6 +157,11 @@ P(A|B) = P(B|A) * P(A) / P(B)
 监控告警等等。
 
 ### raft协议（分布式一致性协议）
+raft是管理日志复制的一种共识（consenus algorithm）算法,它产生的结果等同与Paxos，效果跟Paxos一样，但是结构不同与Paxos，
+raft比Paxos更容易理解，为了增强可读性，raft分离了共识关键要素，领导者的选举，日志复制，安全性
+* 领导者选举(Leader election)
+* 日志复制（Log replication）
+* 安全性（Safety）
 
 ## 9. 开源组件（redis, kafka, elk，spark, rpc框架）
 ### elk
