@@ -158,7 +158,7 @@ P(A|B) = P(B|A) * P(A) / P(B)
 
 ### raft协议（分布式一致性协议）
 
-## 9. 开源组件（redis, kafka, elk spark, rpc框架）
+## 9. 开源组件（redis, kafka, elk，spark, rpc框架）
 ### elk
 * elasticsearch
 * logstash
@@ -166,6 +166,21 @@ P(A|B) = P(B|A) * P(A) / P(B)
 * beats
 
 ### kafka
+kafka是一个高性能，高吞吐，高伸缩，高可用的分布式消息订阅系统
+#### 基本概念
+* topic     kafka中标识一个具体的数据类型，在一个kafka集群中是唯一的
+* partition kafka中数据的分区，分片；每个patition只能被同组下的一个消费者使用
+* broker    kafka中物理节点
+* consumer  kafka中数据的消费者，每个消费者属于某个消费组
+* consumer  group 同一消费组下的消费者共同消费topic的数据
+* producer  kafka中数据的生产者，根据不同的策略把数据均匀批量发送给每个partition
+#### 使用场景
+* 活动跟踪 kafka可以跟踪用户的行为数据，以便对用户做推荐使用
+* 消息传递 
+* 度量指标 kafka可以用来记录运营数据指标，用于监控报警使用
+* 日志收集 kafka收集日志数据，供其他系统进行分析，统计使用
+* 流量削峰 流量增多时候，把请求写入kafka避免后端服务压力过大崩溃
+* 系统解耦
 
 ### redis
 redis是一种键值(Key-Value)数据库，相对于关系型数据库，Redis也被叫作**非关系型数据库**
