@@ -166,7 +166,7 @@ P(A|B) = P(B|A) * P(A) / P(B)
 * beats
 
 ### kafka
-kafka是一个高性能，高吞吐，高伸缩，高可用的分布式消息订阅系统
+kafka是一个高性能，高吞吐，高伸缩，高可用的分布式消息订阅系统，通过zookeeper进行集群状态的监控和管理。
 #### 基本概念
 * topic     kafka中标识一个具体的数据类型，在一个kafka集群中是唯一的
 * partition kafka中数据的分区，分片；每个patition只能被同组下的一个消费者使用
@@ -181,6 +181,14 @@ kafka是一个高性能，高吞吐，高伸缩，高可用的分布式消息订
 * 日志收集 kafka收集日志数据，供其他系统进行分析，统计使用
 * 流量削峰 流量增多时候，把请求写入kafka避免后端服务压力过大崩溃
 * 系统解耦
+#### kafka数据读写过程
+* 写入过程
+    * 生产者计算出需要写入的patition
+    * 通过zk获取该patition的leader server
+    * 向leader server的主patition写入数据，同时主patition同步数据到副本patition上，并修改offset值
+    * 主patition回复成功或失败
+* 读出过程
+
 
 ### redis
 redis是一种键值(Key-Value)数据库，相对于关系型数据库，Redis也被叫作**非关系型数据库**
