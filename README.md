@@ -185,16 +185,16 @@ kafka是一个高性能，高吞吐，高伸缩，高可用的分布式消息订
 * 写入过程
     * 产生消息ProducerRecord |Topic|Partition|Key|Value|
     * 生产者计算出需要写入的patition(通过Key或者round_robin)
-    * 通过zk获取该patition的leader
+    * 通过zk获取该partition的leader
     * leader将消息写入本地log
     * follower从leader pull消息，写入本地log后，回复ACK
     * leader提交数据之后，修改offset，回复producer ACK
 * 读出过程
     * 通过zk获取读取的topic的主patition的leader信息
     * 连接leader对应的broker，consumer将自己保存的offset发送给leader
-    * zk根据同一消费组下消费者用户的数量，动态修改消费者的消费patition
+    * zk根据同一消费组下消费者用户的数量，动态修改消费者的消费partition
 #### kafka 2种leader
-kafka集群中有2种leader，一种是broker的leader即controller leader, 还有一种就是patition leader
+kafka集群中有2种leader，一种是broker的leader即controller leader, 还有一种就是partition leader
 * Controller leader
 
 当broker启动的时候，都会创建kafkaController对象，节点会在zk指定的路径下创建临时节点，只有一个创建成功了成为leader，其他的都是
