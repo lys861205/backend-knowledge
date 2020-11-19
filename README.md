@@ -179,6 +179,18 @@ raft比Paxos更容易理解，为了增强可读性，raft分离了共识关键�
 * 领导者（Leaders）
     * 当选后，发送心跳包给每个服务器
     * 接受客户请求，追加条目（entry）到本地日志，然后给其他server发送AppendEntriesRPC请求，当entry被安全复制之后，就应用这条entry到状态机中，并回复client，如果有些folloers，网络丢包或者延迟，会一直发送AppendEntiesRPC请求，直到日志一致
+   
+#### RPC Request
+* AppendEntries RPC (Invoked by leader to replicate log entries, also used as heartbeat)
+    * Arguments:
+        * term
+        * leaderId
+        * prevLogIndex
+        * prevLogTerm
+        * entries[]
+        * leaderCommit
+
+* RequestVote RPC (Invoked by candidates to gather votes)
 
 ## 9. 开源组件（redis, kafka, elk，spark, rpc框架）
 ### elk
