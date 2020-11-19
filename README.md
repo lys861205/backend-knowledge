@@ -166,7 +166,8 @@ raft比Paxos更容易理解，为了增强可读性，raft分离了共识关键�
     * 领导者只能追加日志条目(Leader Append-Only) 领导者从不重写或者删除条目从她的日志中
     * 日志匹配(Log Matching) 如果2个日志包含的条目有相同的索引和任期，那给定的索引向前的条目都是相同的
     * 领导者完整性(Leader Completeness)
-    * 状态机安全性（State Machine Safety）
+    * 状态机安全性（State Machine Safety）某个leader选举成功之后，不会直接提交前任leader时期的日志，而是通过提交当前任期的日志的时候“顺手”把之前的日志也提交了，
+    如果leader被选举后没有收到客户端的请求呢，在任期开始的时候发立即尝试复制、提交一条空的log
 #### 服务器角色
 * 追随者(Followers)
     * 负责回复（RPC）来自候选人和领导者的请求
