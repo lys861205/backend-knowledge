@@ -172,6 +172,10 @@ raft比Paxos更容易理解，为了增强可读性，raft分离了共识关键�
          * 如获得了大部分服务的选票，成为领导者
          * 如果接收到新领导者的心跳请求，转换成追随者角色
          * 如果选举超时，开始新的选举
+    3. 领导者（Leaders）
+        * 当选后，发送心跳包给每个服务器
+        * 接受客户请求，追加条目（entry）到本地日志，然后给其他server发送AppendEntriesRPC请求，当entry被安全复制之后，就应用这条entry到状态机中，并回复client，如果有些folloers，网络丢包或者延迟，会一直发送AppendEntiesRPC请求，直到日志一致
+        
     
 * 日志复制（Log replication）
 * 安全性（Safety）
