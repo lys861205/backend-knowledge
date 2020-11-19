@@ -185,7 +185,7 @@ raft比Paxos更容易理解，为了增强可读性，raft分离了共识关键�
     * Arguments:
         * term  领导者的任期
         * leaderId 领导者的id，被用于追随者重定向clients的请求
-        * prevLogIndex 紧挨着新的一条日志索引
+        * prevLogIndex 紧挨着新的条目的前一条日志索引
         * prevLogTerm  term of prevLogIndex entry
         * entries[]    需要存储的日志条目
         * leaderCommit 领导者的提交的索引
@@ -193,7 +193,7 @@ raft比Paxos更容易理解，为了增强可读性，raft分离了共识关键�
         * term 
         * success
 
-* RequestVote RPC (Invoked by candidates to gather votes)
+* RequestVote RPC 被获选者收集选票(Invoked by candidates to gather votes)
     * Arguments:
         * term 获选者的任期
         * candidateId 
