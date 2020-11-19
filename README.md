@@ -162,7 +162,11 @@ raft比Paxos更容易理解，为了增强可读性，raft分离了共识关键�
 * 领导者选举(Leader election)    
 * 日志复制（Log replication）
 * 安全性（Safety）
-
+    * 选举安全性（Election Safety) 任意一个任期最多能选举一个领导者
+    * 领导者只能追加日志条目(Leader Append-Only) 领导者从不重写或者删除条目从她的日志中
+    * 日志匹配(Log Matching) 如果2个日志包含的条目有相同的索引和任期，那给定的索引向前的条目都是相同的
+    * 领导者完整性(Leader Completeness)
+    * 状态机安全性（State Machine Safety）
 #### 服务器角色
 * 追随者(Followers)
     * 负责回复（RPC）来自候选人和领导者的请求
