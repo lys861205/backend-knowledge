@@ -207,6 +207,17 @@ raft比Paxos更容易理解，为了增强可读性，raft分离了共识关键�
     * Result：
         * term 
         * voteGranted
+### 几个State
+* 所有服务不变的状态（Persistent state on all servers）
+    * currentTerm  当前最新任期
+    * votedFor     候选人接受的选票当前任期
+    * log[]        log entries(日志条目)
+* 所有服务易变的状态（Volatile state on all servers)
+    * commitIndex
+    * lastApplied
+* 领导者易变的状态 （Volatile state on leades）
+    * nextIndex[] 记录了领导者需要同步给follwer的下条日志的index
+    * matchIndex[] 记录了领导者同步给follower日志的最高索引值
 
 
 ## 9. 开源组件（redis, kafka, elk，spark, rpc框架）
