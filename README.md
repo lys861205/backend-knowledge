@@ -352,7 +352,6 @@ Redis中，键的数据类型是字符串，但是为了丰富数据的存储的
 #### 6. redis集群(redis cluster)
 redis集群3种解决方案
 * 主从复制
-
 过程：
  1. 从服务器连接主服务器，并发送sync命令
  2. 主服务器执行bgsave, 并使用缓存区记录bgsave之后执行的写命令
@@ -369,6 +368,32 @@ redis集群3种解决方案
 * cluster
 
  优点：解决负载均衡的问题，通过虚拟slot(16384)
+ 
+#### 7. redis分布式锁
+* 分布式锁特征
+    * 安全性，锁独享，在任意时间，只有一个客户端持有
+    * 活性A， 无死锁，客户端崩溃，或者服务网络分裂，仍然可以获取锁
+    * 活性B， 容错，大部分节点活着，仍然能够获取锁和释放锁
+* 单redis实例和主从结构的分布式锁
+    * 主从分布式锁的存在竞态
+        1. 客户端A从master获取锁
+        2. master将锁同步到slave之前崩溃
+        3. slave节点升级为master节点
+        4. 客户端B获取到已经被A获取到的锁，安全失效
+    * 单redis
+      ```
+      # 获取锁，NX 表示存在设置失败 并设置过期时间
+      SET resource_name my_random_value NX PX 30000
+      
+      # 释放锁 使用lua原子操作
+      if redis.call("get",KEYS[1]) == ARGV[1] then 
+          return redis.call("del",KEYS[1]) 
+      else 
+          return 0 
+      end
+      ```
+    * [RedLock算法](https://github.com/jacket-code/redlock-cpp)
+    
 
 ## 10. linux操作系统知识
 
