@@ -401,6 +401,24 @@ redis集群3种解决方案
   * allkeys-random 在所有的key中随机删除key
   * volatile-random 在设置过期的key中随机删除key
   * volatile-ttl 在设置过期的key中删除即将要过期的key
+ 
+#### 9. redis事务（相当于lua脚本的原子操作）
+  * MULTI 开启一个事务
+  * EXEC  执行事务，要不全部执行成功，要不全部执行失败
+  * DISCARD 放弃事务
+  * WATCH 监测key，被监测的key不修改，执行事务的时候失败
+  * UNWATCH 放弃监测
+  ```
+   > MULTI
+   OK
+   > INCR foo
+   QUEUED
+   > INCR bar
+   QUEUED
+   > EXEC
+   1) (integer) 1
+   2) (integer) 1
+  ```
     
 
 ## 10. linux操作系统知识
