@@ -394,6 +394,14 @@ redis集群3种解决方案
       ```
     * [RedLock算法](https://github.com/jacket-code/redlock-cpp)
     
+#### 8. redis缓存回收策略
+  * noeviction 返回客户端错误（所有的写操作，处理del操作）
+  * allkeys-lru 在所有的key中删除最近最少使用的key
+  * volatile-lru 在设置过期的key中删除最近最少使用的key
+  * allkeys-random 在所有的key中随机删除key
+  * volatile-random 在设置过期的key中随机删除key
+  * volatile-ttl 在设置过期的key中删除即将要过期的key
+    
 
 ## 10. linux操作系统知识
 
