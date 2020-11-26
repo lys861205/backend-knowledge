@@ -285,7 +285,7 @@ follower。当leader故障后，所有的follower的watcher收到通知，再次
 数据必须有挂掉的leader的所有数据。
 
 
-### redis
+### [redis](http://www.redis.cn/documentation.html)
 redis是一种键值(Key-Value)数据库，相对于关系型数据库，Redis也被叫作**非关系型数据库**
 Redis中只包含“键”和“值”两部分，只能通过“键”来查询“值”；Redis主要是作为内存数据库使用，也就是说，
 数据是存储在内存中的。
