@@ -29,7 +29,7 @@
   * TCP三次握手
   <img src="https://github.com/lys861205/backend-knowledge/blob/master/tcp-shake-hand.png" width="400" height="300">
   
-  三次握手的过程<br>
+  三次握手的过程：
      > 1. 客户端发送SYN分节，开始三次握手，状态为SYN_SEND, 等待服务器回复ACK，如果在ttl的时间内为收到ACK，客户端会重发SYN，重试的次数可配置
       ```
       net.ipv4.tcp_syn_retries=6
