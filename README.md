@@ -86,10 +86,16 @@
     当 TIME_WAIT 的连接数量超过该参数时，新关闭的连接就不再经历 TIME_WAIT 而直接关闭
     ```
     net.ipv4.tcp_max_tw_buckets = 5000
-    复用 TIME_WAIT
+    复用 TIME_WAIT状态下的端口
     net.ipv4.tcp_tw_reuse = 1
     ```
-   
+    当然，要想使 tcp_tw_reuse 生效，还得把 timestamps 参数设置为 1，它满足安全复用的先决条件
+    ```
+    net.ipv4.tcp_timestamps = 1
+    ```
+  * SO_LINGER选项
+  so_linger是一个结构体，其中有2个参数，l_onoff 和 l_linger;第一个参数表示启用so_linger, 第二个参数
+  l_linger=0时直接清空发送缓冲区发送RST，l_linger非0时等待缓冲区数据发送完成或者超时
   * 滑动窗口
   * 流量控制，拥塞控制
   * nagle算法
