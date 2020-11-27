@@ -28,8 +28,10 @@
 ### TCP
   * TCP三次握手
   <img src="https://github.com/lys861205/backend-knowledge/blob/master/tcp-shake-hand.png" width="400" height="300">
+  
   * TCP四次挥手
    <img src="https://github.com/lys861205/backend-knowledge/blob/master/tcp-wave-hand.png" width="400" height="300">
+   
   * 滑动窗口
   * 流量控制，拥塞控制
   * nagle算法
