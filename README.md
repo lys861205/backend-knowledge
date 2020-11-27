@@ -29,39 +29,38 @@
   * TCP三次握手
   <img src="https://github.com/lys861205/backend-knowledge/blob/master/tcp-shake-hand.png" width="400" height="300">
   
-  三次握手的过程
-  
-      1. 客户端发送SYN分节，开始三次握手，状态为SYN_SEND, 等待服务器回复ACK，如果在ttl的时间内为收到ACK，客户端会重发SYN，重试的次数可配置
-      ```
-      net.ipv4.tcp_syn_retries=6
-      ```
-      在第1次重试发生1秒之后，接着按照翻倍的时间间隔发起重试2， 4， 6， 16， 32仍然没有ACK，终止TCP握手
-      2. 当服务器收到SYN之后，会发ACK+SYN分节，确定客户端的序列号，此时服务器状态SYN_RCV;服务器创建一个队列存放半连接状态，当半连接队列溢出的时候，服务器再也无法建立新的连接
-      获取因半连接队列已满引发的的失败，可以通过命令统计到
-      ```
-      netstat -s | grep "SYNs to LISTEN"
-      ```
-      这里统计的是因队列满而溢出的SYN的个数，是个累加值，可以通过参数修改半连接队列大小
-      ```
-      net.ipv4.tcp_max_syn_backlog = 1024
-      ```
-      半连接队列满了是否只能丢弃连接呢，可以开启syncookies功能，可以不使用SYN队列情况下成功建立tcp连接；syncookies原理是根据当前服务状态计算出一个值，跟
-      ACK+SYN分节一起发送给客户端，当客户端返回ACK，严重该值，合法放到accpet队列中；该功能开启方法
-      ```
-      net.ipv4.tcp_syscookies=1
-      ```
-      3. 当客户端收到ACK+SYN,回复ACK，状态变成ESTABLISHED;表示连接建立；如果未收到ACK，就会一直重发ACK+SYN;可以修改重发次数
-      ```
-      net.ipv4.tcp_synack_retries=5
-      ```
-      服务端重试根据backoff算法；服务器收到ACK，会把连接从SYN队列移到accept队列，accept队列已满；不移动SYN队列，会重发syn+ack报文（1,2,4,8...）；
-      查看accept队列状态
-      ```
-      netstat -s | grep "listen queue"
-      ss -ltn 查看队列大小
-      修改队列大小
-      net.core.somaxconn=128
-      ```
+  三次握手的过程<br>
+        1. 客户端发送SYN分节，开始三次握手，状态为SYN_SEND, 等待服务器回复ACK，如果在ttl的时间内为收到ACK，客户端会重发SYN，重试的次数可配置
+        ```
+        net.ipv4.tcp_syn_retries=6
+        ```
+        在第1次重试发生1秒之后，接着按照翻倍的时间间隔发起重试2， 4， 6， 16， 32仍然没有ACK，终止TCP握手
+        2. 当服务器收到SYN之后，会发ACK+SYN分节，确定客户端的序列号，此时服务器状态SYN_RCV;服务器创建一个队列存放半连接状态，当半连接队列溢出的时候，服务器再也无法建立新的连接
+        获取因半连接队列已满引发的的失败，可以通过命令统计到
+        ```
+        netstat -s | grep "SYNs to LISTEN"
+        ```
+        这里统计的是因队列满而溢出的SYN的个数，是个累加值，可以通过参数修改半连接队列大小
+        ```
+        net.ipv4.tcp_max_syn_backlog = 1024
+        ```
+        半连接队列满了是否只能丢弃连接呢，可以开启syncookies功能，可以不使用SYN队列情况下成功建立tcp连接；syncookies原理是根据当前服务状态计算出一个值，跟
+        ACK+SYN分节一起发送给客户端，当客户端返回ACK，严重该值，合法放到accpet队列中；该功能开启方法
+        ```
+        net.ipv4.tcp_syscookies=1
+        ```
+        3. 当客户端收到ACK+SYN,回复ACK，状态变成ESTABLISHED;表示连接建立；如果未收到ACK，就会一直重发ACK+SYN;可以修改重发次数
+        ```
+        net.ipv4.tcp_synack_retries=5
+        ```
+        服务端重试根据backoff算法；服务器收到ACK，会把连接从SYN队列移到accept队列，accept队列已满；不移动SYN队列，会重发syn+ack报文（1,2,4,8...）；
+        查看accept队列状态
+        ```
+        netstat -s | grep "listen queue"
+        ss -ltn 查看队列大小
+        修改队列大小
+        net.core.somaxconn=128
+        ```
   
   * TCP四次挥手
    <img src="https://github.com/lys861205/backend-knowledge/blob/master/tcp-wave-hand.png" width="400" height="300">
