@@ -367,6 +367,7 @@ Redis的sentinel用于管理多个redis服务器的，主要执行以下任务
     * 监控 sentinel不断监测主服务和从服务是否运转正常
     * 提醒 当某个redis服务出现问题，sentinel向其他服务发送通知
     * 自动故障转移 当主redis出现问题，sentinel会把主redis的一台从redis升级为主redis，并让其他从服务器从新的主服务器上复制数据，并向客户端访问新的主服务地址
+    
 Redis的sentinel使用分布式部署，使用gossip协议接受主服务器的信息，只要少数sentinel正常运行时，是不能执行自动故障转移的
 
 
