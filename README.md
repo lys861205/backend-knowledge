@@ -27,21 +27,17 @@
 ## 2. 网络知识
 ### TCP
 
-效果：
-  > 1. 第一项
-  > 2. 第二项
-  > 3. 第三项
-
   * TCP三次握手
   <img src="https://github.com/lys861205/backend-knowledge/blob/master/tcp-shake-hand.png" width="400" height="300">
   
   三次握手的过程：
-     >1. 客户端发送SYN分节，开始三次握手，状态为SYN_SEND, 等待服务器回复ACK，如果在ttl的时间内为收到ACK，客户端会重发SYN，重试的次数可配置
+  
+      1. 客户端发送SYN分节，开始三次握手，状态为SYN_SEND, 等待服务器回复ACK，如果在ttl的时间内为收到ACK，客户端会重发SYN，重试的次数可配置
       ```
       net.ipv4.tcp_syn_retries=6
       ```
       在第1次重试发生1秒之后，接着按照翻倍的时间间隔发起重试2， 4， 6， 16， 32仍然没有ACK，终止TCP握手
-     >2. 当服务器收到SYN之后，会发ACK+SYN分节，确定客户端的序列号，此时服务器状态SYN_RCV;服务器创建一个队列存放半连接状态，当半连接队列溢出的时候，服务器再也无法建立新的连接
+      2. 当服务器收到SYN之后，会发ACK+SYN分节，确定客户端的序列号，此时服务器状态SYN_RCV;服务器创建一个队列存放半连接状态，当半连接队列溢出的时候，服务器再也无法建立新的连接
       获取因半连接队列已满引发的的失败，可以通过命令统计到
       ```
       netstat -s | grep "SYNs to LISTEN"
@@ -55,7 +51,7 @@
       ```
       net.ipv4.tcp_syscookies=1
       ```
-    > 3. 当客户端收到ACK+SYN,回复ACK，状态变成ESTABLISHED;表示连接建立；如果未收到ACK，就会一直重发ACK+SYN;可以修改重发次数
+      3. 当客户端收到ACK+SYN,回复ACK，状态变成ESTABLISHED;表示连接建立；如果未收到ACK，就会一直重发ACK+SYN;可以修改重发次数
       ```
       net.ipv4.tcp_synack_retries=5
       ```
