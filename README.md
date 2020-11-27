@@ -26,6 +26,12 @@
  料之外的修改，因此，每一次使用时，编译器都会重新从内存中获取这个值
 ## 2. 网络知识
 ### TCP
+
+效果：
+> 1. 第一项
+> 2. 第二项
+> 3. 第三项
+
   * TCP三次握手
   <img src="https://github.com/lys861205/backend-knowledge/blob/master/tcp-shake-hand.png" width="400" height="300">
   
