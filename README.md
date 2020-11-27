@@ -32,7 +32,7 @@
   
   三次握手的过程：
   
-      1. 客户端发送SYN分节，开始三次握手，状态为SYN_SEND, 等待服务器回复ACK，如果在ttl的时间内为收到ACK，客户端会重发SYN，重试的次数可配置
+      1. 客户端发送SYN分节，开始三次握手，状态为SYN_SEND, 等待服务器回复ACK，如果在RTT的时间内为收到ACK，客户端会重发SYN，重试的次数可配置
       ```
       net.ipv4.tcp_syn_retries=6
       ```
@@ -63,9 +63,32 @@
       修改队列大小
       net.core.somaxconn=128
       ```
+      * 优化三次握手，通过TFO 技术如何绕过三次握手
   
   * TCP四次挥手
    <img src="https://github.com/lys861205/backend-knowledge/blob/master/tcp-wave-hand.png" width="400" height="300">
+   
+   四次挥手过程：<br>
+   主动关闭连接的一方叫着主动方，被动关闭连接的一方叫着被动方
+   
+    1. 主动方发送FIN分节，状态为FIN_WAIT1
+    ```
+    net.ipv4.tcp_orphan_retries = 0 重试发送FIN几次，默认是8次
+    ```
+    2. 被动收到FIN，状态为CLOSE_WAIT，并发送ACK，
+    3. 被动方发送FIN，状态为LAST_ACK
+    4. 主动方收到ACK，状态为FIN_WAIT2;收到FIN，状态TIME_WAIT, 并发送ACK
+    ```
+    主动方调用close函数之后，一直没有收到FIN处于FIN_WAIT2, 通过
+    net.ipv4.tcp_fin_timeout = 60 设置等待FIN的超时时间；还未收到FIN，直接关闭连接
+    ```
+     TIME_WAIT状态需要保持2MSL（Maximum Segment lifetime）的长,linux 提供了参数
+    当 TIME_WAIT 的连接数量超过该参数时，新关闭的连接就不再经历 TIME_WAIT 而直接关闭
+    ```
+    net.ipv4.tcp_max_tw_buckets = 5000
+    复用 TIME_WAIT
+    net.ipv4.tcp_tw_reuse = 1
+    ```
    
   * 滑动窗口
   * 流量控制，拥塞控制
