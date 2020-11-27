@@ -28,9 +28,9 @@
 ### TCP
 
 效果：
-> 1. 第一项
-> 2. 第二项
-> 3. 第三项
+      > 1. 第一项
+      > 2. 第二项
+      > 3. 第三项
 
   * TCP三次握手
   <img src="https://github.com/lys861205/backend-knowledge/blob/master/tcp-shake-hand.png" width="400" height="300">
