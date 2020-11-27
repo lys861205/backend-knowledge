@@ -27,7 +27,9 @@
 ## 2. 网络知识
 ### TCP
   * TCP三次握手
+  <img src="https://github.com/lys861205/backend-knowledge/blob/master/tcp-shake-hand.png">
   * TCP四次挥手
+   <img src="https://github.com/lys861205/backend-knowledge/blob/master/tcp-wave-hand.png">
   * 滑动窗口
   * 流量控制，拥塞控制
   * nagle算法
