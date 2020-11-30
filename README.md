@@ -28,7 +28,6 @@
 ### TCP
 
   * TCP三次握手
-  //<img src="https://github.com/lys861205/backend-knowledge/blob/master/tcp-shake-hand.png" width="400" height="300">
   
   三次握手的过程：
   
@@ -66,7 +65,6 @@
       * 优化三次握手，通过TFO 技术如何绕过三次握手
   
   * TCP四次挥手
-   //<img src="https://github.com/lys861205/backend-knowledge/blob/master/tcp-wave-hand.png" width="400" height="300">
    
    四次挥手过程：<br>
    主动关闭连接的一方叫着主动方，被动关闭连接的一方叫着被动方
@@ -108,6 +106,7 @@
   ```
   
   * 拥塞控制
+      * 慢启动
   
   拥塞控制是为了解决网络中每个发送方根据接受方缓冲区的大小发送数据，而网络的传输速度是有限的，会直接丢弃超过处理能力的报文，
   导致网络丢包严重，网络利用率低下问题的。
