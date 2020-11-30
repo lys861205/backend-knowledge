@@ -112,7 +112,7 @@
   * nagle算法
   
   nagle算法主要解决的小数据包发送导致网络利用率不高，低效的问题（如一个字节发送，产生41字节的IP数据包，20字节的TCP头，20字节的IP头）；
-  在**TCP连接上最多只用有一个未被确认的小分组，在该分组确认达到之前不再发送小数据**，对于大于MSS(Maxinum Segment Size)片段的数据直接发送。
+  在**TCP连接上最多只有一个未被确认的小分组，在该分组确认达到之前不再发送小数据**，对于大于MSS(Maxinum Segment Size)片段的数据直接发送。
   ```
   开启，禁用nagle算法
   setsockopt(fd, SOL_TCP, TCP_NODELAY, XX, XX)
