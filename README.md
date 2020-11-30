@@ -28,7 +28,7 @@
 ### TCP
 
   * TCP三次握手
-  <img src="https://github.com/lys861205/backend-knowledge/blob/master/tcp-shake-hand.png" width="400" height="300">
+  //<img src="https://github.com/lys861205/backend-knowledge/blob/master/tcp-shake-hand.png" width="400" height="300">
   
   三次握手的过程：
   
@@ -66,7 +66,7 @@
       * 优化三次握手，通过TFO 技术如何绕过三次握手
   
   * TCP四次挥手
-   <img src="https://github.com/lys861205/backend-knowledge/blob/master/tcp-wave-hand.png" width="400" height="300">
+   //<img src="https://github.com/lys861205/backend-knowledge/blob/master/tcp-wave-hand.png" width="400" height="300">
    
    四次挥手过程：<br>
    主动关闭连接的一方叫着主动方，被动关闭连接的一方叫着被动方
