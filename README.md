@@ -113,22 +113,22 @@
   导致网络丢包严重，网络利用率低下问题的。
   
   拥塞控制包括4部分：（慢启动，拥塞避免，快速重传，快速恢复）<br>
-        1. 慢启动 调整初始拥塞窗口大小<br>
-        刚开始并不知道网络的传输能力，避免网络过载，需要调低TCP发送窗口，让发送速度变慢，就是慢启动。
-        让速度变慢需要拥塞窗口的控制(CWnd, 接受窗口rwnd, 发送窗口swnd)，可以避免网络拥塞，
-        发送窗口swnd = min(Cwnd, rwnd);
-        
-        ```
-        初始拥塞窗口大小（也称initcwnd）是1个MSS，没有发送拥塞时候，慢启动拥塞窗口需要指数级扩大（经过4个RTT变成16个MSS），
-        
-        查看当前拥塞窗口大小方法
-        ss -nli | fgrep cwnd
-        在通过ip route change 命令改变拥塞窗口：
-        ip route | while read r; do
-          ip route change $r initcwnd 10;
-          done
-        ```
-        改变初始拥塞窗口，可能会很快导致网络拥塞。
+      * 慢启动 调整初始拥塞窗口大小<br>
+      刚开始并不知道网络的传输能力，避免网络过载，需要调低TCP发送窗口，让发送速度变慢，就是慢启动。
+      让速度变慢需要拥塞窗口的控制(CWnd, 接受窗口rwnd, 发送窗口swnd)，可以避免网络拥塞，
+      发送窗口swnd = min(Cwnd, rwnd);
+
+      ```
+      初始拥塞窗口大小（也称initcwnd）是1个MSS，没有发送拥塞时候，慢启动拥塞窗口需要指数级扩大（经过4个RTT变成16个MSS），
+
+      查看当前拥塞窗口大小方法
+      ss -nli | fgrep cwnd
+      在通过ip route change 命令改变拥塞窗口：
+      ip route | while read r; do
+        ip route change $r initcwnd 10;
+        done
+      ```
+      改变初始拥塞窗口，可能会很快导致网络拥塞。
   
   * nagle算法
   
