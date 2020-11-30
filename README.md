@@ -107,7 +107,25 @@
   net.ipv4.tcp_rmem = 4096（最小） 87380（默认） 62914566（最大）
   ```
   
-  * 拥塞控制
+  * 拥塞控制，慢启动
+  
+  拥塞控制是为了解决网络中每个发送方根据接受方缓冲区的大小发送数据，而网络的传输速度是有限的，会直接丢弃超过处理能力的报文，
+  导致网络丢包严重，网络利用率低下问题的。
+  拥塞控制包括4部分：
+      * 拥塞窗口（CWnd），初始拥塞窗口大小(也称initcwnd）是1个MSS，经过4个RTT变成16个MSS；
+      
+      发送窗口 swnd = min(cwnd, rwnd)
+      ```
+      查看当前拥塞窗口大小
+      ss -nli | fgrep cwnd
+      在通过ip route change 命令改变拥塞窗口：
+      ip route | while read r; do
+        ip route change $r initcwnd 10;
+        done
+      ```
+      改变初始拥塞窗口，可能会很快导致网络拥塞。
+      
+      * 
   
   * nagle算法
   
