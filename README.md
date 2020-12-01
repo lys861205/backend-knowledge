@@ -25,6 +25,8 @@
  能会被外界修改。操作系统、硬件或其他线程都有可能修改该变量。该变量的值有可能遭受意
  料之外的修改，因此，每一次使用时，编译器都会重新从内存中获取这个值
  
+* [智能指针(shared_ptr)](https://github.com/lys861205/leetcode/blob/master/shared_ptr.cc)
+
 ### 设计模式 分为3种分类，23种类
   * 创建型模式 单例模式，抽象工厂模式，建造者模式，工厂模式，原型模式
   * 结构型模式 适配式模式，桥接模式，装饰模式，组合模式，外观模式，享元模式，代理模式
@@ -391,8 +393,8 @@ raft比Paxos更容易理解，为了增强可读性，raft分离了共识关键�
 
 
 ## 9. 开源组件（redis, kafka, elk，spark, rpc框架）
-### elk
-* elasticsearch
+### ELK
+* ElasticSearch 是一个数据搜索分析的分布式平台
 * logstash
 * kibana
 * beats
