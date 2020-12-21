@@ -684,7 +684,7 @@ iostat 指标
 
 #### ptmalloc2
  
-#### tcmalloc
+#### [tcmalloc](https://www.jianshu.com/p/11082b443ddf)
  1. TCMalloc 原理<br>
     ThreadCache --> CentralCache --> PageHeap, 每个线程独有一份ThreadCache,无需加锁
   2. TCMalloc内存分配分三类<br>
