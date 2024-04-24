@@ -92,7 +92,7 @@
       net.ipv4.tcp_max_syn_backlog = 1024
       ```
       半连接队列满了是否只能丢弃连接呢，可以开启syncookies功能，可以不使用SYN队列情况下成功建立tcp连接；syncookies原理是根据当前服务状态计算出一个值，跟
-      ACK+SYN分节一起发送给客户端，当客户端返回ACK，严重该值，合法放到accpet队列中；该功能开启方法
+      ACK+SYN分节一起发送给客户端，当客户端返回ACK，验证该值，合法放到accpet队列中；该功能开启方法
       ```
       net.ipv4.tcp_syscookies=1
       ```
